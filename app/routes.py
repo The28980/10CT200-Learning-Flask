@@ -1,12 +1,10 @@
-from app import app
 from flask import render_template
+from app import app
+from app.forms import LoginForm
 
-# Use command [python -m flask run] to run this code
-# When changes to the code are made, save and refresh the instance before running
+# python -m flask run
 
-@app.route('/')
-@app.route('/index')
-
-def index():
-    user = {'username': 'Siggums'}
-    return render_template('index.html', title='Home', user=user)
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Sign In', form=form)
