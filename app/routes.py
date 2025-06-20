@@ -4,6 +4,13 @@ from app.forms import LoginForm
 
 # python -m flask run
 
+@app.route('/')
+
+@app.route('/index')
+def index():
+    user = {'username': 'Miguel'}
+    return render_template('index.html', title='Home', user=user)
+
 @app.route('/login')
 def login():
     form = LoginForm()
